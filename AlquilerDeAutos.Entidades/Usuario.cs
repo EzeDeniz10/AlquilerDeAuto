@@ -22,9 +22,8 @@ namespace AlquilerDeAutos.Entidades
 
         public string Telefono { get; set; }
 
-        public string Emails { get; set; }
+        public string Email { get; set; }
 
-        public string CarnetDeConducir { get; set; }
 
         public string CategoriaCarnet { get; set; }
 

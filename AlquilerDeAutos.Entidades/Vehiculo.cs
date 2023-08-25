@@ -28,6 +28,9 @@ namespace AlquilerDeAutos.Entidades
 
         public double CapacidadDeBaul { get; set; }
 
+        public virtual TipoCombustible TiposCombustible { get; set; } 
+
+        public virtual List<Reserva> Reservas { get; set; }  = new List<Reserva>(); 
 
     }
 }

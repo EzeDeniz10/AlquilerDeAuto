@@ -29,6 +29,8 @@ namespace AlquilerDeAutos.Entidades
 
         public DateTime FechaDeVencimientoCarnet { get; set; }
 
+        public virtual List<Reserva> Reservas { get; set; } = new List<Reserva>();
+
        
     }
 }

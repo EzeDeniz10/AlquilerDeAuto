@@ -1,3 +1,5 @@
+using AlquilerDeAutos.AcessoDatos;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 namespace AlquilerDeAuto.Api
@@ -15,8 +17,13 @@ namespace AlquilerDeAuto.Api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            
+            builder.Services.AddDbContext<AlquilerAutoContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+            });
+
             var app = builder.Build();
+
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

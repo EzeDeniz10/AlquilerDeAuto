@@ -16,11 +16,12 @@ namespace AlquilerDeAutos.Entidades
 
         public double Monto { get; set; }
 
-        public virtual FormaDePago FormaDePago { get; set; } 
+        public virtual FormaDePago FormaDePago { get; set; }
 
         public virtual Reserva Reserva { get; set; }
 
-       
-        
-       
+
+
+
+    }
 }

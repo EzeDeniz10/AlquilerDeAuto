@@ -14,7 +14,7 @@ namespace AlquilerDeAutos.Entidades
 
         public string FechaDeSalida { get; set;}
 
-        public string IdVehiculo { get; set; }
+        public int IdVehiculo { get; set; }
 
         public int IdUsuarios { get; set; }
 

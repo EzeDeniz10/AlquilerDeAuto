@@ -10,22 +10,22 @@ namespace AlquilerDeAutos.AcessoDatos
 {
     public class AlquilerAutoContext : DbContext
     {
-      
 
-            public AlquilerAutoContext(DbContextOptions options) : base(options)
-            {
-            }
 
-           public DbSet<Usuario> Usuarios { get; set; } 
-        public DbSet<Vehiculo> vehiculos{ get; set; }
+        public AlquilerAutoContext(DbContextOptions options) : base(options)
+        {
+        }
+
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Vehiculo> vehiculos { get; set; }
         public DbSet<Reserva> Reservas { get; set; }
-        public DbSet<Pago> Pagos { get; set; }  
+        public DbSet<Pago> Pagos { get; set; }
         public DbSet<FormaDePago> FormaDePagos { get; set; }
         public DbSet<TipoCombustible> tipoCombustibles { get; set; }
 
-            protected override void OnModelCreating(ModelBuilder modelBuilder)
-            {
-                base.OnModelCreating(modelBuilder);
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Usuario>()
                 .Property(p => p.DNI)
@@ -33,13 +33,13 @@ namespace AlquilerDeAutos.AcessoDatos
                 .IsRequired();
 
 
-                modelBuilder.Entity<Usuario>()
-                    .Property(p => p.Nombre)
-                    .IsRequired();
+            modelBuilder.Entity<Usuario>()
+                .Property(p => p.Nombre)
+                .IsRequired();
 
             modelBuilder.Entity<Usuario>()
                 .HasKey(p => p.Id);
-                    
+
             modelBuilder.Entity<Usuario>()
                    .Property(p => p.Apellido)
                    .IsRequired();
@@ -67,7 +67,7 @@ namespace AlquilerDeAutos.AcessoDatos
 
             modelBuilder.Entity<Vehiculo>()
                 .Property(p => p.Anio);
-                
+
             modelBuilder.Entity<Vehiculo>()
                .Property(p => p.Marca)
                .IsRequired();
@@ -82,7 +82,7 @@ namespace AlquilerDeAutos.AcessoDatos
                .IsRequired();
             modelBuilder.Entity<Vehiculo>()
                .HasKey(p => p.IdVehiculo);
-               
+
             modelBuilder.Entity<Vehiculo>()
                .Property(p => p.Modelo)
                .IsRequired();
@@ -95,20 +95,20 @@ namespace AlquilerDeAutos.AcessoDatos
 
             modelBuilder.Entity<Vehiculo>()
                 .HasOne(c => c.TiposCombustible)
-                .WithMany(t => t.Vehiculos) 
-                .HasForeignKey(x => x.TiposCombustible);
+                .WithMany(t => t.Vehiculos)
+                .HasForeignKey(x => x.IdTipoCombustible);
             //Forma de pago
 
-             modelBuilder.Entity<FormaDePago>()
-                .Property(p => p.Descripcion)
-                .IsRequired();
+            modelBuilder.Entity<FormaDePago>()
+               .Property(p => p.Descripcion)
+               .IsRequired();
             modelBuilder.Entity<FormaDePago>()
                 .HasKey(p => p.IdFormaDePago);
             //Pagos.
 
             modelBuilder.Entity<Pago>()
                 .HasKey(p => p.IdPago);
-                
+
             modelBuilder.Entity<Pago>()
                .Property(p => p.Monto)
                .IsRequired();
@@ -125,7 +125,7 @@ namespace AlquilerDeAutos.AcessoDatos
             //Reserva.
 
             modelBuilder.Entity<Reserva>()
-                .Property( p => p.FechaDeEntrada) 
+                .Property(p => p.FechaDeEntrada)
                 .IsRequired();
             modelBuilder.Entity<Reserva>()
                .Property(p => p.Total)
@@ -134,8 +134,8 @@ namespace AlquilerDeAutos.AcessoDatos
                .Property(p => p.FechaDeSalida)
                .IsRequired();
             modelBuilder.Entity<Reserva>()
-              .HasKey( x => x.IdReservas);
-               
+              .HasKey(x => x.IdReservas);
+
             modelBuilder.Entity<Reserva>()
                .Property(p => p.IdUsuarios)
                .IsRequired();
@@ -145,24 +145,24 @@ namespace AlquilerDeAutos.AcessoDatos
             modelBuilder.Entity<Reserva>()
                .HasOne(r => r.Usuario)
                .WithMany(u => u.Reservas)
-               .HasForeignKey(x => x.Usuario);
+               .HasForeignKey(x => x.IdUsuarios);
             modelBuilder.Entity<Reserva>()
                 .HasOne(r => r.Vehiculo)
                 .WithMany(u => u.Reservas)
-                .HasForeignKey(x => x.IdUsuarios);
+                .HasForeignKey(x => x.IdVehiculo);
             //Tipo de combustible.
-              
+
             modelBuilder.Entity<TipoCombustible>()
                 .Property(p => p.Descripcion)
                 .IsRequired();
             modelBuilder.Entity<TipoCombustible>()
                 .HasKey(p => p.IdCombustible);
-                
+
 
 
         }
 
 
     }
-   }
+}
 

@@ -17,7 +17,7 @@ namespace AlquilerDeAutos.AcessoDatos
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<Vehiculo> vehiculos { get; set; }
+        public DbSet<Vehiculo> Vehiculos { get; set; }
         public DbSet<Reserva> Reservas { get; set; }
         public DbSet<Pago> Pagos { get; set; }
         public DbSet<FormaDePago> FormaDePagos { get; set; }

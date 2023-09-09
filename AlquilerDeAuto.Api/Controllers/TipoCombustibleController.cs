@@ -37,7 +37,7 @@ namespace AlquilerDeAuto.Api.Controllers
         }
         [HttpPost]
 
-        public async Task<TipoCombustibleCrearDto> Post([FromBody] TipoCombustibleCrearDto dto)
+        public async Task<TipoCombustibleDetalleDto> Post([FromBody] TipoCombustibleCrearDto dto)
         {
             var respuesta = await _service.Crear(dto);
             return respuesta;

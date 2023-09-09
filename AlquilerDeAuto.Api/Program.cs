@@ -24,8 +24,9 @@ namespace AlquilerDeAuto.Api
             });
             builder.Services.AddScoped<IFormaDePagoService, FormaDePagoService>();
             builder.Services.AddScoped<ITipoCombustibleService, TipoCombustibleService>();
+            builder.Services.AddScoped<IVehiculoService, IVehiculoService>();
 
-            var app = builder.Build();
+           var app = builder.Build();
 
 
             // Configure the HTTP request pipeline.

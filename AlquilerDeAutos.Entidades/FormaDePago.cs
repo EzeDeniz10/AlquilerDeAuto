@@ -10,7 +10,7 @@ namespace AlquilerDeAutos.Entidades
     {
         public int IdFormaDePago { get; set; }
 
-        public int Descripcion { get; set; }
+        public string Descripcion { get; set; }
 
         public virtual List<Pago> Pagos { get; set; } = new List<Pago>();   
 

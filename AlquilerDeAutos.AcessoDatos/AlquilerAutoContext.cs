@@ -21,7 +21,7 @@ namespace AlquilerDeAutos.AcessoDatos
         public DbSet<Reserva> Reservas { get; set; }
         public DbSet<Pago> Pagos { get; set; }
         public DbSet<FormaDePago> FormaDePagos { get; set; }
-        public DbSet<TipoCombustible> tipoCombustibles { get; set; }
+        public DbSet<TipoCombustible> TipoCombustibles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

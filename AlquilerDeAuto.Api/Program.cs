@@ -1,4 +1,5 @@
 using AlquilerDeAutos.AcessoDatos;
+using AlquilerDeAutos.Controladora;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
@@ -21,6 +22,8 @@ namespace AlquilerDeAuto.Api
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
             });
+            builder.Services.AddScoped<IFormaDePagoService, FormaDePagoService>();
+            builder.Services.AddScoped<ITipoCombustibleService, TipoCombustibleService>();
 
             var app = builder.Build();
 

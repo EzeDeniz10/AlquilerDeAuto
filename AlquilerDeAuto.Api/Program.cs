@@ -24,7 +24,7 @@ namespace AlquilerDeAuto.Api
             });
             builder.Services.AddScoped<IFormaDePagoService, FormaDePagoService>();
             builder.Services.AddScoped<ITipoCombustibleService, TipoCombustibleService>();
-            builder.Services.AddScoped<IVehiculoService, IVehiculoService>();
+            builder.Services.AddScoped<IVehiculoService, VehiculoService>();
 
            var app = builder.Build();
 
